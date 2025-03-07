@@ -20,11 +20,11 @@ async function cadastrarUsuario() {
   if (error) {
     console.error("Erro ao cadastrar:", error);
     alert("Erro ao cadastrar! Verifique o console.");
-  } else {
-    alert("Cadastro realizado com sucesso!"Você já está participando do sorteio.");
+} else {
+    alert("Cadastro realizado com sucesso! Você já está participando do sorteio.");
     document.getElementById("cadastroForm").reset(); // Limpa o formulário após sucesso
-  }
 }
+
 
 // Impede o envio do formulário e chama a função de cadastro
 document.getElementById('cadastroForm').addEventListener('submit', async function(e) {
