@@ -24,7 +24,7 @@ async function cadastrarUsuario() {
     alert("Cadastro realizado com sucesso! Você já está participando do sorteio.");
     document.getElementById("cadastroForm").reset(); // Limpa o formulário após sucesso
 }
-
+}
 
 // Impede o envio do formulário e chama a função de cadastro
 document.getElementById('cadastroForm').addEventListener('submit', async function(e) {
