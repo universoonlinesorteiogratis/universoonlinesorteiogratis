@@ -7,27 +7,27 @@ const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // Função de cadastro
 async function cadastrarUsuario() {
-  const nome = document.getElementById('nome').value;
-  const email = document.getElementById('email').value;
-  const whatsapp = document.getElementById('whatsapp').value;
-  const data_cadastro = new Date().toISOString();
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const whatsapp = document.getElementById("whatsapp").value;
+    const data_cadastro = new Date().toISOString();
 
-  // Enviar dados para o Supabase
-  const { data, error } = await supabase
-    .from('participantes')  // Nome da tabela criada
-    .insert([{ nome, email, whatsapp, data_cadastro }]);
+    // Enviar dados para o Supabase
+    const { data, error } = await supabase
+        .from('participantes') // Nome da tabela criada
+        .insert([{ nome, email, whatsapp, data_cadastro }]);
 
-  if (error) {
-    console.error("Erro ao cadastrar:", error);
-    alert("Erro ao cadastrar! Verifique o console.");
-} else {
-    alert("Cadastro realizado com sucesso! Você já está participando do sorteio.");
-    document.getElementById("cadastroForm").reset(); // Limpa o formulário após sucesso
-}
+    if (error) {
+        console.error("Erro ao cadastrar:", error);
+        alert("Erro ao cadastrar! Verifique o console.");
+    } else {
+        alert("Cadastro realizado com sucesso! Você já está participando do sorteio.");
+        document.getElementById("cadastroForm").reset(); // Limpa o formulário após sucesso
+    }
 }
 
 // Impede o envio do formulário e chama a função de cadastro
-document.getElementById('cadastroForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+document.getElementById("cadastroForm").addEventListener("submit", async function(e) {
+    e.preventDefault(); // Previne o envio do formulário
     await cadastrarUsuario(); // Aguarda o cadastro ser finalizado antes de prosseguir
 });
