@@ -14,7 +14,7 @@ async function cadastrarUsuario() {
 
   // Enviar dados para o Supabase
   const { data, error } = await supabase
-    .from('universo_sorteio')  // Nome da tabela criada
+    .from('participantes')  // Nome da tabela criada
     .insert([{ nome, email, whatsapp, data_cadastr }]);
 
   if (error) {
