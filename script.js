@@ -27,7 +27,7 @@ async function cadastrarUsuario() {
 }
 
 // Impede o envio do formulário e chama a função de cadastro
-document.getElementById('cadastroForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  cadastrarUsuario();
+document.getElementById('cadastroForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    await cadastrarUsuario(); // Aguarda o cadastro ser finalizado antes de prosseguir
 });
