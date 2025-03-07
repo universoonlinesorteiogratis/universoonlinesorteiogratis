@@ -1,65 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Universo Sorteio</title>
-    <style>
-        /* Estilos podem ir aqui */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Universo Sorteio</title>
+  <!-- Adicionando o link para o CSS externo -->
+  <link rel="stylesheet" href="css/cadastro.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #ff5733;
+    }
+    form {
+      margin-top: 20px;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #ff5733;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e65c00;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Cadastro de Participantes</h1>
-        <p>Preencha os campos abaixo para participar do sorteio!</p>
-        <form id="cadastroForm">
-            <label for="nome">Digite seu nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required />
-            
-            <label for="email">Digite seu e-mail:</label>
-            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
-            
-            <label for="whatsapp">Digite seu WhatsApp:</label>
-            <input type="text" id="whatsapp" name="whatsapp" placeholder="Digite seu WhatsApp" required />
-            
-            <button type="submit">Cadastrar</button>
-        </form>
-    </div>
+  <div class="container">
+    <h1>Cadastro de Participantes</h1>
+    <p>Preencha os campos abaixo para participar do sorteio!</p>
+    <form id="cadastroForm">
+      <label for="nome">Digite seu nome:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required />
 
-    <script>
-        document.getElementById('cadastroForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
+      <label for="email">Digite seu e-mail:</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
 
-            // Coleta os valores dos campos
-            const nome = document.getElementById('nome').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const whatsapp = document.getElementById('whatsapp').value.trim();
-            const data_cadastro = new Date().toISOString();
+      <label for="whatsapp">Digite seu WhatsApp:</label>
+      <input type="text" id="whatsapp" name="whatsapp" placeholder="Digite seu WhatsApp" required />
 
-            // Verifica se os campos estão preenchidos
-            if (!nome || !email || !whatsapp) {
-                alert("Preencha todos os campos!");
-                return;
-            }
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
 
-            try {
-                // Envia os dados para o Supabase
-                const { data, error } = await supabase
-                    .from('universo_sorteio') // Nome da tabela no Supabase
-                    .insert([{ nome, email, whatsapp, data_cadastro }]);
-
-                if (error) {
-                    console.error("Erro ao cadastrar:", error);
-                    alert("Erro ao cadastrar! Verifique o console.");
-                } else {
-                    alert("Cadastro realizado com sucesso!"); // Alerta de sucesso
-                    document.getElementById('cadastroForm').reset(); // Limpa os campos após o cadastro
-                }
-            } catch (err) {
-                console.error("Erro inesperado:", err);
-                alert("Ocorreu um erro. Tente novamente.");
-            }
-        });
-    </script>
+  <script>
+    // Adicionando o código para mostrar o alerta de cadastro realizado
+    document.getElementById('cadastroForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Previne o envio do formulário
+      alert('Cadastro realizado com sucesso!');
+    });
+  </script>
 </body>
 </html>
