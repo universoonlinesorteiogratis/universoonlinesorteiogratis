@@ -15,14 +15,14 @@ async function cadastrarUsuario() {
   // Enviar dados para o Supabase
   const { data, error } = await supabase
     .from('participantes')  // Nome da tabela criada
-    .insert([{ nome, email, whatsapp, data_cadastr }]);
+    .insert([{ nome, email, whatsapp, data_cadastro }]);
 
   if (error) {
     console.error("Erro ao cadastrar:", error);
     alert("Erro ao cadastrar! Verifique o console.");
   } else {
-    alert("Cadastro realizado com sucesso!");
-    document.getElementById("cadastroForm").reset();
+    alert("Cadastro realizado com sucesso!"Você já está participando do sorteio.");
+    document.getElementById("cadastroForm").reset(); // Limpa o formulário após sucesso
   }
 }
 
