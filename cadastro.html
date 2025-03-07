@@ -54,26 +54,24 @@
   <div class="container">
     <h1>Cadastro de Participantes</h1>
     <p>Preencha os campos abaixo para participar do sorteio!</p>
-    <form id="cadastroForm">
-      
-      <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required />
+   <form id="cadastroForm">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required />
 
-      
-      <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
 
-      
-      <input type="text" id="whatsapp" name="whatsapp" placeholder="Digite seu WhatsApp" required />
+    <label for="whatsapp">WhatsApp:</label>
+    <input type="text" id="whatsapp" name="whatsapp" placeholder="Digite seu WhatsApp" required />
 
-      <button type="submit">Cadastrar</button>
-    </form>
-  </div>
+    <button type="submit">Cadastrar</button>
+</form>
 
-  <script>
-    // Adicionando o código para mostrar o alerta de cadastro realizado
-  
-   document.getElementById('cadastroForm').addEventListener('submit', async function(e) {
-       e.preventDefault(); // Previne o envio do formulário
-       await cadastrarUsuario(); // Aguarda o cadastro ser finalizado antes de prosseguir
-<script src="https://raw.githubusercontent.com/universoonlinesorteiogratis/universoonlinesorteiogratis/main/script.js"></script>
-</body>
-</html>
+<script>
+    document.getElementById('cadastroForm').addEventListener('submit', async function(e) {
+        e.preventDefault(); // Previna o envio do formulário
+        await cadastrarUsuario(); // Aguarde o cadastro ser finalizado antes de prosseguir
+    });
+</script>
+
+<script src="https://raw.githack.com/universoonlinesorteiogratis/universoonlinesorteiogratis/main/script.js"></script>
