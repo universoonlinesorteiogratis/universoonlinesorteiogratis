@@ -10,7 +10,7 @@ async function cadastrarUsuario() {
   const nome = document.getElementById('nome').value;
   const email = document.getElementById('email').value;
   const whatsapp = document.getElementById('whatsapp').value;
-  const data_cadastr = new Date().toISOString();
+  const data_cadastro = new Date().toISOString();
 
   // Enviar dados para o Supabase
   const { data, error } = await supabase
