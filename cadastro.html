@@ -74,40 +74,6 @@
 
 <!-- Importando o script.js corrigido -->
 <script src="https://raw.githack.com/universoonlinesorteiogratis/universoonlinesorteiogratis/main/script.js"></script>
-<script>
-    // Adiciona a biblioteca do Supabase
-    const SUPABASE_URL = "https://dtkonvkclvmgcqdmxuih.supabase.co";
-    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR0a29udmtjbHZtZ2NxZG14dWloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDEzNTU0NzcsImV4cCI6MjA1NjkzMTQ3N30.PbZ3S-3Fftb9kz-Nt0wBU3PaJ4Q_HBFsZhxXNABMetc"; // Sua chave aqui
-
-    // Cria a conexão com o Supabase
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // Função para cadastrar usuário
-    async function cadastrarUsuario() {
-        const nome = document.getElementById("nome").value;
-        const email = document.getElementById("email").value;
-        const whatsapp = document.getElementById("whatsapp").value;
-        const data_cadastro = new Date().toISOString();
-
-        // Insere os dados na tabela do Supabase
-        const { data, error } = await supabase
-            .from("participants") // Nome da tabela no Supabase
-            .insert([{ nome, email, whatsapp, data_cadastro }]);
-
-        if (error) {
-            console.error("Erro ao cadastrar:", error);
-            alert("Erro ao cadastrar! Verifique o console.");
-        } else {
-            alert("Cadastro realizado com sucesso! Você já está participando do sorteio.");
-            document.getElementById("cadastroForm").reset();
-        }
-    }
-
-    // Adiciona evento ao formulário para capturar o envio
-    document.getElementById("cadastroForm").addEventListener("submit", async function(e) {
-        e.preventDefault(); // Evita o recarregamento da página
-        await cadastrarUsuario();
-    });
-</script>
+  
 </body>
 </html>
