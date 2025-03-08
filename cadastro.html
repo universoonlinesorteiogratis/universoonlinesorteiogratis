@@ -68,12 +68,18 @@
         <button type="submit">Cadastrar</button>
     </form>
 </div>
-
-<!-- Importando a biblioteca do Supabase -->
+<!-- Importa a biblioteca do Supabase primeiro -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<!-- Importando o script.js corrigido -->
-<script src="https://raw.githack.com/universoonlinesorteiogratis/universoonlinesorteiogratis/main/script.js"></script>
-  
+<!-- Aguarda a biblioteca carregar antes de executar o script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const script = document.createElement("script");
+        script.src = "https://raw.githack.com/universoonlinesorteiogratis/universoonlinesorteiogratis/main/script.js";
+        script.defer = true;
+        document.body.appendChild(script);
+    });
+</script>
+
 </body>
 </html>
